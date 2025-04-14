@@ -1,0 +1,4 @@
+libraries:
+Pandas
+streamlit
+Plotly
