@@ -50,12 +50,12 @@ col1, col2 = st.columns([0.1, 0.9])
 with col1:
     st.image(image, width=100)
 with col2:
-    st.markdown('<h1 class="title-test">✨ Water Symphony Dashboard ✨</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="title-test"> Water Symphony Dashboard </h1>', unsafe_allow_html=True)
 
 # Interactive storytelling section
-st.markdown("### 🌟 **Dive into the Data** 🌟")
+st.markdown("###  **Dive into the Data** ")
 st.markdown(f"📅 **Last refreshed on:** {datetime.datetime.now().strftime('%d %B %Y')}")
-st.markdown("Here's a story of water: every drop has a tale. Let's follow its journey through the data streams of quality and change. 💧")
+st.markdown("Here's a story of water: every drop has a tale. Let's follow its journey through the data streams of quality and change. ")
 
 # Ensure numeric conversion
 for col in ['D.O. (mg/l)', 'PH', 'B.O.D. (mg/l)', 'Temp']:
@@ -67,7 +67,7 @@ col3, col4 = st.columns(2)
 
 with col3:
     fig_do = px.bar(df, x="year", y="D.O. (mg/l)", 
-                    title="<b>💧 Dissolved Oxygen's Dance Through Time</b>",
+                    title="<b> Dissolved Oxygen's Dance Through Time</b>",
                     labels={"D.O. (mg/l)": "Dissolved Oxygen (mg/l)", "year": "Year"},
                     template="plotly_dark", color_discrete_sequence=["#ffcccb"])
     fig_do.update_traces(marker=dict(opacity=0.8))
@@ -99,7 +99,7 @@ col5, col6 = st.columns(2)
 with col5:
     bod_avg = df.groupby("year")["B.O.D. (mg/l)"].mean().reset_index()
     fig_bod = px.area(bod_avg, x="year", y="B.O.D. (mg/l)",
-                      title="<b>💨 Biochemical Oxygen Demand: A Flowing Saga</b>",
+                      title="<b>Biochemical Oxygen Demand: A Flowing Saga</b>",
                       template="plotly_dark", color_discrete_sequence=["#ffd700"])
     fig_bod.update_traces(fill="tonexty", opacity=0.7)
     st.plotly_chart(fig_bod, use_container_width=True)
@@ -112,7 +112,7 @@ with col5:
 with col6:
     temp_avg = df.groupby("year")["Temp"].mean().reset_index()
     fig_temp = px.scatter(temp_avg, x="year", y="Temp",
-                          title="<b>🔥 Temperature's Crescendo Over Time</b>",
+                          title="<b> Temperature's Crescendo Over Time</b>",
                           template="plotly_dark", color_discrete_sequence=["#ff4d6d"])
     fig_temp.update_traces(marker=dict(size=12))
     st.plotly_chart(fig_temp, use_container_width=True)
@@ -123,7 +123,7 @@ with col6:
                        file_name="yearTemp.csv", mime="text/csv")
 
 # Dynamic pie chart
-st.markdown("### 🥧 **Pie Chart Insights**")
+st.markdown("###  **Pie Chart Insights**")
 metric = st.selectbox("Choose a metric for distribution analysis:", ['D.O. (mg/l)', 'PH', 'B.O.D. (mg/l)', 'Temp'])
 pie_data = df.groupby("year")[metric].sum().reset_index()
 fig_pie = px.pie(pie_data, values=metric, names="year", title=f"<b>📊 Distribution of {metric} by Year</b>",
@@ -135,7 +135,7 @@ st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown(
     """
     <div class="footer">
-        <p><b>Designed with creativity 💡 by mounika</b></p>
+        <p><b>Designed with creativity  by mounika</b></p>
         <p><i>Turning water data into art since 2025</i></p>
     </div>
     """, unsafe_allow_html=True
